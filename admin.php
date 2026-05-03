@@ -25,15 +25,7 @@ $result = $conn->query($sql);
 
 <header>
     <h1>🍷 Festival Tchin-Cin 2026</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="programma.html">Programma</a>
-        <a href="prenotazione.html">Prenotazione</a>
-        <a href="partner.html">I nostri partner</a>
-        <a href="chisiamo.html">Chi siamo</a>
-        <a href="shop.php">Shop</a>
-        <a href="logout.php">Logout</a>
-    </nav>
+    <?php include 'navbar.php'; ?>
 </header>
 
 <section>

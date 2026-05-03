@@ -26,15 +26,7 @@ while ($row = $result->fetch_assoc()) {
 
 <header>
     <h1>🍷 Festival Tchin-Cin 2026</h1>
-
-    <nav>
-        <a href="index.php">Home</a>
-        <a href="programma.html">Programma</a>
-        <a href="prenotazione.html">Prenotazione</a>
-        <a href="partner.html">Partner</a>
-        <a href="chisiamo.html">Chi siamo</a>
-        <a href="shop.php">Shop</a>
-    </nav>
+    <?php include 'navbar.php'; ?>
 </header>
 
 <section>

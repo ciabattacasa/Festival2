@@ -12,16 +12,7 @@
 
 <header>
     <h1>🍇 Eventi</h1>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="programma.html">Programma</a>
-    <a href="prenotazione.html">Prenotazione</a>
-    <a href="partner.html">I nostri partner</a>
-    <a href="chisiamo.html">Chi siamo</a> 
-    <a href="shop.php">Shop</a>
-</nav>
-
+    <?php include 'navbar.php'; ?>
 </header>
     <section>
     <h2>📅 Programma e orari del Festival 🍇</h2>

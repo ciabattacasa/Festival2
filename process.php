@@ -35,15 +35,8 @@ $totale = $prezzo_giorno * $numero_giorni * $quantita;
 <body>
 
 <header>
-<h1>🍷 Festival del Vino</h1>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="eventi.html">Eventi</a>
-<a href="partner.html">I nostri partner</a>
-<a href="prenotazione.html">Prenotazione</a>
-<a href="chisiamo.html">Chi siamo</a>
-</nav>
+    <h1>🍷 Festival del Vino</h1>
+    <?php include 'navbar.php'; ?>
 </header>
 
 <section>

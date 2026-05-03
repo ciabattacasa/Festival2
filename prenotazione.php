@@ -10,16 +10,8 @@
 <body>
 
 <header>
-<h1>🍷 Acquista Biglietti</h1>
-
-<nav>
-        <a href="index.html">Home</a>
-        <a href="programma.html">Programma</a>
-        <a href="prenotazione.html">Prenotazione</a>
-        <a href="partner.html">I nostri partner</a>
-        <a href="chisiamo.html">Chi siamo</a>
-        <a href="shop.php">Shop</a>
-    </nav>
+    <h1>🍷 Acquista Biglietti</h1>
+    <?php include 'navbar.php'; ?>
 </header>
 
 <section>
