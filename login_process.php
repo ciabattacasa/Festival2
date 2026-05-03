@@ -14,7 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $_SESSION['loggedin'] = true;
         $_SESSION['email'] = $email;
-        header("Location: index.html");
+
+        setcookie("loggedin", "true", time() + (86400 * 30), "/"); // Cookie valido per 30 giorni
+        setcookie("email", $email, time() + (86400 * 30), "/");
+
+        header("Location: index.php");
     } else {
         header("Location: login.php?error=1");
     }

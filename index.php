@@ -35,7 +35,7 @@
 
         <div class="cta-box">
             <p><strong>Ottieni il tuo biglietto digitale per accedere al festival!</strong></p>
-            <a href="prenotazione.html" class="btn-main">Prenota la tua esperienza</a>
+            <a href="prenotazione.php" class="btn-main">Prenota la tua esperienza</a>
         </div>
     </div>
 

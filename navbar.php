@@ -5,5 +5,13 @@
     <a href="partner.php">I nostri partner</a>
     <a href="chisiamo.php">Chi siamo</a>
     <a href="shop.php">Shop</a>
-    <a href="login.php">LogIn</a>
+    <?php
+    if (isset($_COOKIE["loggedin"]) && $_COOKIE["loggedin"] === "true" && isset($_COOKIE["email"])) {
+        $_SESSION['loggedin'] = true;
+        $_SESSION['email'] = $_COOKIE["email"];
+        echo '<a href="logout.php">LogOut</a>';
+    } else {
+        echo '<a href="login.php">LogIn</a>';
+    }
+    ?> 
 </nav>
