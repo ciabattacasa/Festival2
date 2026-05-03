@@ -123,7 +123,5 @@ for ($i = 0; $i < $quantita; $i++) {
 
 </body>
 </body>
-<footer>
-    <p>© 2026 Festival Tchin-Cin - Creato con passione</p>
-</footer>
+<?php include 'footer.php'; ?>
 </html>

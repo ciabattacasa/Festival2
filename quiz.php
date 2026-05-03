@@ -89,7 +89,5 @@ if ($Punti == 10) {
 </section>
 
 </body>
-<footer>
-    <p>© 2026 Festival Tchin-Cin - Creato con passione</p>
-</footer>
+<?php include 'footer.php'; ?>
 </html>
