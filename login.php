@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Festival Tchin-Cin 2026</title>
+    <link rel="stylesheet" href="stile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>🍷 Festival Tchin-Cin 2026</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="programma.html">Programma</a>
+        <a href="prenotazione.html">Prenotazione</a>
+        <a href="partner.html">I nostri partner</a>
+        <a href="chisiamo.html">Chi siamo</a>
+        <a href="shop.php">Shop</a>
+    </nav>
+</header>
+
+<section>
+    <h2>🔐 Accesso Amministratore</h2>
+
+    <form action="login_process.php" method="post">
+        <input type="text" name="username" placeholder="Nome utente" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="submit" value="Accedi">
+    </form>
+
+    <?php
+    if (isset($_GET['error'])) {
+        echo "<p style='color: #6b0f1a; text-align: center; margin-top: 20px;'>Credenziali non valide. Riprova.</p>";
+    }
+    ?>
+</section>
+
+</body>
+</html>
