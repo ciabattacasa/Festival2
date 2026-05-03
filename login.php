@@ -17,16 +17,18 @@
         <a href="partner.html">I nostri partner</a>
         <a href="chisiamo.html">Chi siamo</a>
         <a href="shop.php">Shop</a>
+        <a href="login.php">LogIn</a>
     </nav>
 </header>
 
 <section>
-    <h2>🔐 Accesso Amministratore</h2>
+    <h2>🔐 Login</h2>
 
     <form action="login_process.php" method="post">
-        <input type="text" name="username" placeholder="Nome utente" required><br>
+        <input type="text" name="email" placeholder="Email" required><br>
         <input type="password" name="password" placeholder="Password" required><br>
         <input type="submit" value="Accedi">
+        <input type="button" value="Registrati" onclick="window.location.href='register.php'">
     </form>
 
     <?php

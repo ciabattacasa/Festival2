@@ -1,22 +1,22 @@
 <?php
 session_start();
 
-include "db.php";
-$conn = connetti();
+include "connessione.php";
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Simple authentication - in production, use proper hashing and database
-    if ($username == "admin" && $password == "festival2026") {
+    $sql = "SELECT * FROM utenti WHERE email='$email' AND password='$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
         $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $username;
-        header("Location: admin.php");
-        exit();
+        $_SESSION['email'] = $email;
+        header("Location: index.html");
     } else {
         header("Location: login.php?error=1");
-        exit();
     }
 }
 
