@@ -229,9 +229,7 @@ checkboxes.forEach(cb => cb.addEventListener("change", calcolaTotale));
 window.onload = generaCampi;
 </script>
 
-<footer>
-    <p>© 2026 Festival Tchin-Cin - Creato con passione</p>
-</footer>
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
