@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 04, 2026 alle 11:58
+-- Creato il: Mag 04, 2026 alle 13:03
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -24,42 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `ordini`
+-- Struttura della tabella `biglietti_prenotazioni`
 --
 
-CREATE TABLE `ordini` (
+CREATE TABLE `biglietti_prenotazioni` (
   `id` int(11) NOT NULL,
-  `id_prodotto` int(11) NOT NULL,
-  `id_utente` varchar(255) NOT NULL,
-  `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `prenotazioni`
---
-
-CREATE TABLE `prenotazioni` (
-  `id` int(11) NOT NULL,
-  `id_utente` varchar(255) DEFAULT NULL,
-  `id_prodotto` int(11) DEFAULT NULL,
-  `quantita` int(11) DEFAULT 1,
-  `stato` varchar(50) DEFAULT 'prenotato'
+  `email` varchar(255) DEFAULT NULL,
+  `giorni` text DEFAULT NULL,
+  `quantita` int(11) DEFAULT NULL,
+  `totale` decimal(10,2) DEFAULT NULL,
+  `codice` varchar(50) DEFAULT NULL,
+  `data` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dump dei dati per la tabella `prenotazioni`
+-- Dump dei dati per la tabella `biglietti_prenotazioni`
 --
 
-INSERT INTO `prenotazioni` (`id`, `id_utente`, `id_prodotto`, `quantita`, `stato`) VALUES
-(1, 'ciaociao@gmail.com', 44, 1, 'prenotato'),
-(2, 'ciabattacasa@gmail.com', 44, 1, 'prenotato'),
-(3, 'ciabattacasa@gmail.com', 45, 1, 'prenotato'),
-(4, 'ciaociao@gmail.com', 45, 1, 'prenotato'),
-(5, 'ciaociao@gmail.com', 48, 2, 'prenotato'),
-(6, 'ciaociao@gmail.com', 49, 1, 'prenotato'),
-(7, 'ciaociao@gmail.com', 49, 3, 'prenotato');
+INSERT INTO `biglietti_prenotazioni` (`id`, `email`, `giorni`, `quantita`, `totale`, `codice`, `data`) VALUES
+(4, 'abc@gmail.com', 'Venerdì, Sabato', 2, 80.00, 'VINO-2026-C52FB9', '2026-05-04 12:31:40'),
+(5, 'abc@gmail.com', 'Venerdì, Sabato', 2, 80.00, 'VINO-2026-ACC931', '2026-05-04 12:35:32'),
+(6, 'ciabattacasa@gmail.com', 'Venerdì, Sabato', 2, 80.00, 'VINO-2026-BA55CA', '2026-05-04 12:40:16'),
+(7, 'spazzabilly@gmail.com', 'Venerdì, Sabato, Domenica', 2, 120.00, 'VINO-2026-E81360', '2026-05-04 12:48:38'),
+(8, 'spazzabilly@gmail.com', 'Venerdì, Sabato, Domenica', 2, 120.00, 'VINO-2026-04BC14', '2026-05-04 12:49:53'),
+(9, 'spazzabilly@gmail.com', 'Venerdì, Sabato, Domenica', 2, 120.00, 'VINO-2026-587954', '2026-05-04 12:50:14'),
+(10, 'abc@gmail.com', 'Venerdì', 1, 25.00, 'VINO-2026-220817', '2026-05-04 12:55:43');
 
 -- --------------------------------------------------------
 
@@ -83,7 +72,7 @@ CREATE TABLE `prodotti` (
 
 INSERT INTO `prodotti` (`id`, `nome`, `descrizione`, `prezzo`, `immagine`, `categoria`, `ordine`) VALUES
 (44, 'Pinot Noir Bourgogne', 'Vino rosso elegante della Borgogna', 35.00, 'pinot_noir.jpg', 'Vini Francesi', 0),
-(45, 'Chardonnay Bourgogne', 'Bianco minerale e raffinato', 32.00, 'chardonnay.jpg', 'Vini Francesi', 2),
+(45, 'Chardonnay Bourgogne', 'Bianco minerale e raffinato', 32.00, 'chardonnay.jpg', 'Vini Francesi', 3),
 (46, 'Meursault Blanc', 'Grande bianco della Côte de Beaune', 65.00, 'meursault.jpg', 'Vini Francesi', 0),
 (47, 'Chablis Premier Cru', 'Bianco fresco e sapido della Borgogna', 42.00, 'chablis.jpg', 'Vini Francesi', 0),
 (48, 'Chianti Classico DOCG', 'Rosso toscano tradizionale ed equilibrato', 30.00, 'chianti.jpg', 'Vini Italiani', 2),
@@ -94,10 +83,39 @@ INSERT INTO `prodotti` (`id`, `nome`, `descrizione`, `prezzo`, `immagine`, `cate
 (53, 'T-shirt Festival', 'Maglietta edizione limitata 2026', 18.00, 'tshirt.jpg', 'Gadget', 0),
 (54, 'Cappellino Tchin-Cin', 'Cappellino brandizzato festival', 15.00, 'cappellino.jpg', 'Gadget', 0),
 (55, 'Shopper Bag Eco', 'Borsa ecologica riutilizzabile', 10.00, 'shopper.jpg', 'Gadget', 0),
-(56, 'Kit Sommelier', 'Kit completo degustazione vino', 40.00, 'kit.jpg', 'Esperienze', 0),
+(56, 'Kit Sommelier', 'Kit completo degustazione vino', 40.00, 'kit.jpg', 'Esperienze', 2),
 (57, 'Ticket Masterclass', 'Lezione con sommelier esperti', 75.00, 'masterclass.jpg', 'Esperienze', 0),
 (58, 'VIP Wine Lounge', 'Accesso area esclusiva VIP', 80.00, 'vip.jpg', 'Esperienze', 0),
 (59, 'Tour Cantina Partner', 'Visita guidata in cantina', 65.00, 'tour.jpg', 'Esperienze', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `shop_prenotazioni`
+--
+
+CREATE TABLE `shop_prenotazioni` (
+  `id` int(11) NOT NULL,
+  `id_utente` varchar(255) DEFAULT NULL,
+  `id_prodotto` int(11) DEFAULT NULL,
+  `quantita` int(11) DEFAULT 1,
+  `stato` varchar(50) DEFAULT 'prenotato'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `shop_prenotazioni`
+--
+
+INSERT INTO `shop_prenotazioni` (`id`, `id_utente`, `id_prodotto`, `quantita`, `stato`) VALUES
+(1, 'ciaociao@gmail.com', 44, 1, 'prenotato'),
+(2, 'ciabattacasa@gmail.com', 44, 1, 'prenotato'),
+(3, 'ciabattacasa@gmail.com', 45, 1, 'prenotato'),
+(4, 'ciaociao@gmail.com', 45, 1, 'prenotato'),
+(5, 'ciaociao@gmail.com', 48, 2, 'prenotato'),
+(6, 'ciaociao@gmail.com', 49, 1, 'prenotato'),
+(7, 'ciaociao@gmail.com', 49, 3, 'prenotato'),
+(8, 'ciabattacasa@gmail.com', 45, 1, 'prenotato'),
+(9, 'abc@gmail.com', 56, 2, 'prenotato');
 
 -- --------------------------------------------------------
 
@@ -117,32 +135,32 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`email`, `password`, `name`, `surname`) VALUES
+('abc@gmail.com', 'abc', 'Alfa', 'Beto'),
 ('ciabattacasa@gmail.com', 'pollo', 'ciabatta', 'casa'),
 ('ciaociao@gmail.com', 'zxcvb', 'Sim', 'Rac'),
-('raciti.simona@gmail.com', 'asdfg', 'Simona', 'Raciti');
+('raciti.simona@gmail.com', 'asdfg', 'Simona', 'Raciti'),
+('spazzabilly@gmail.com', 'cane', 'Spazza', 'Billy');
 
 --
 -- Indici per le tabelle scaricate
 --
 
 --
--- Indici per le tabelle `ordini`
+-- Indici per le tabelle `biglietti_prenotazioni`
 --
-ALTER TABLE `ordini`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_prodotto` (`id_prodotto`),
-  ADD KEY `id_utente` (`id_utente`);
-
---
--- Indici per le tabelle `prenotazioni`
---
-ALTER TABLE `prenotazioni`
+ALTER TABLE `biglietti_prenotazioni`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `prodotti`
 --
 ALTER TABLE `prodotti`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `shop_prenotazioni`
+--
+ALTER TABLE `shop_prenotazioni`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -156,16 +174,10 @@ ALTER TABLE `utenti`
 --
 
 --
--- AUTO_INCREMENT per la tabella `ordini`
+-- AUTO_INCREMENT per la tabella `biglietti_prenotazioni`
 --
-ALTER TABLE `ordini`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT per la tabella `prenotazioni`
---
-ALTER TABLE `prenotazioni`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `biglietti_prenotazioni`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotti`
@@ -174,15 +186,10 @@ ALTER TABLE `prodotti`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
--- Limiti per le tabelle scaricate
+-- AUTO_INCREMENT per la tabella `shop_prenotazioni`
 --
-
---
--- Limiti per la tabella `ordini`
---
-ALTER TABLE `ordini`
-  ADD CONSTRAINT `ordini_ibfk_1` FOREIGN KEY (`id_prodotto`) REFERENCES `prodotti` (`id`),
-  ADD CONSTRAINT `ordini_ibfk_2` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`email`);
+ALTER TABLE `shop_prenotazioni`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
