@@ -59,7 +59,11 @@ foreach($categorie as $cat)
         echo "<h3>".$row["nome"]."</h3>";
         echo "<p>".$row["descrizione"]."</p>";
         echo "<p class='prezzo'>€ ".$row["prezzo"]."</p>";
-        echo "<a class='btn-main' href='carrello.php?id=".$row["id"]."'>Acquista</a>";
+            echo "<form action='carrello.php' method='POST'>";
+            echo "<input type='hidden' name='id_prodotto' value='".$row["id"]."'>";
+            echo "<input type='number' name='quantita' value='1' min='1' style='width:60px;'>";
+            echo "<button class='btn-main' type='submit'>Acquista</button>";
+            echo "</form>";
         echo "</div>";
     }
 
