@@ -9,7 +9,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 include "db.php";
 $conn = connetti();
 
-$sql = "SELECT * FROM prenotazioni";
+$sql = "SELECT * FROM shop_prenotazioni";
 $result = $conn->query($sql);
 ?>
 

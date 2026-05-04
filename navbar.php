@@ -6,7 +6,9 @@
     <a href="chisiamo.php">Chi siamo</a>
     <a href="shop.php">Shop</a>
     <?php
+   if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
     if (isset($_COOKIE["loggedin"]) && $_COOKIE["loggedin"] === "true" && isset($_COOKIE["email"])) {
         $_SESSION['loggedin'] = true;
         $_SESSION['email'] = $_COOKIE["email"];

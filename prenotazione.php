@@ -93,11 +93,6 @@
         <form action="process.php" method="post">
             <p style="text-align: center;"><strong>Prezzo:</strong> 25€ al giorno (20€ al giorno selezionando più giorni)</p>
 
-            <div style="margin: 20px 0;">
-                <input type="text" name="telefono" placeholder="Telefono" required style="width: 80%; padding: 10px; margin-bottom: 10px">
-                <input type="email" name="email" placeholder="Email" required style="width: 80%; padding: 10px;margin-bottom:10px">
-            </div>
-
             <div style="text-align: center; margin: 30px 0;">
                 <p><strong>Scegli i giorni:</strong></p>
                 <div class="selection-verticale">

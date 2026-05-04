@@ -21,7 +21,7 @@ if ($quantita < 1) {
 
 // 🔥 SEMPRE inserisco una nuova prenotazione
 $stmt = $conn->prepare("
-    INSERT INTO prenotazioni (id_utente, id_prodotto, quantita)
+    INSERT INTO shop_prenotazioni (id_utente, id_prodotto, quantita)
     VALUES (?, ?, ?)
 ");
 $stmt->bind_param("sii", $email, $id_prodotto, $quantita);
