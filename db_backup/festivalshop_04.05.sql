@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 03, 2026 alle 17:06
+-- Creato il: Mag 04, 2026 alle 11:58
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -37,6 +37,33 @@ CREATE TABLE `ordini` (
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `prenotazioni`
+--
+
+CREATE TABLE `prenotazioni` (
+  `id` int(11) NOT NULL,
+  `id_utente` varchar(255) DEFAULT NULL,
+  `id_prodotto` int(11) DEFAULT NULL,
+  `quantita` int(11) DEFAULT 1,
+  `stato` varchar(50) DEFAULT 'prenotato'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `prenotazioni`
+--
+
+INSERT INTO `prenotazioni` (`id`, `id_utente`, `id_prodotto`, `quantita`, `stato`) VALUES
+(1, 'ciaociao@gmail.com', 44, 1, 'prenotato'),
+(2, 'ciabattacasa@gmail.com', 44, 1, 'prenotato'),
+(3, 'ciabattacasa@gmail.com', 45, 1, 'prenotato'),
+(4, 'ciaociao@gmail.com', 45, 1, 'prenotato'),
+(5, 'ciaociao@gmail.com', 48, 2, 'prenotato'),
+(6, 'ciaociao@gmail.com', 49, 1, 'prenotato'),
+(7, 'ciaociao@gmail.com', 49, 3, 'prenotato');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `prodotti`
 --
 
@@ -56,11 +83,11 @@ CREATE TABLE `prodotti` (
 
 INSERT INTO `prodotti` (`id`, `nome`, `descrizione`, `prezzo`, `immagine`, `categoria`, `ordine`) VALUES
 (44, 'Pinot Noir Bourgogne', 'Vino rosso elegante della Borgogna', 35.00, 'pinot_noir.jpg', 'Vini Francesi', 0),
-(45, 'Chardonnay Bourgogne', 'Bianco minerale e raffinato', 32.00, 'chardonnay.jpg', 'Vini Francesi', 0),
+(45, 'Chardonnay Bourgogne', 'Bianco minerale e raffinato', 32.00, 'chardonnay.jpg', 'Vini Francesi', 2),
 (46, 'Meursault Blanc', 'Grande bianco della Côte de Beaune', 65.00, 'meursault.jpg', 'Vini Francesi', 0),
 (47, 'Chablis Premier Cru', 'Bianco fresco e sapido della Borgogna', 42.00, 'chablis.jpg', 'Vini Francesi', 0),
-(48, 'Chianti Classico DOCG', 'Rosso toscano tradizionale ed equilibrato', 30.00, 'chianti.jpg', 'Vini Italiani', 0),
-(49, 'Brunello di Montalcino', 'Grande rosso strutturato e longevo', 75.00, 'brunello.jpg', 'Vini Italiani', 0),
+(48, 'Chianti Classico DOCG', 'Rosso toscano tradizionale ed equilibrato', 30.00, 'chianti.jpg', 'Vini Italiani', 2),
+(49, 'Brunello di Montalcino', 'Grande rosso strutturato e longevo', 75.00, 'brunello.jpg', 'Vini Italiani', 4),
 (50, 'Vino Nobile di Montepulciano', 'Elegante rosso della Toscana', 45.00, 'montepulciano.jpg', 'Vini Italiani', 0),
 (51, 'Bolgheri Rosso', 'Blend moderno della costa toscana', 55.00, 'bolgheri.jpg', 'Vini Italiani', 0),
 (52, 'Calice Festival', 'Calice ufficiale Tchin-Cin inciso', 12.00, 'calice.jpg', 'Gadget', 0),
@@ -80,10 +107,19 @@ INSERT INTO `prodotti` (`id`, `nome`, `descrizione`, `prezzo`, `immagine`, `cate
 
 CREATE TABLE `utenti` (
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `surname` varchar(255) DEFAULT NULL
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `utenti`
+--
+
+INSERT INTO `utenti` (`email`, `password`, `name`, `surname`) VALUES
+('ciabattacasa@gmail.com', 'pollo', 'ciabatta', 'casa'),
+('ciaociao@gmail.com', 'zxcvb', 'Sim', 'Rac'),
+('raciti.simona@gmail.com', 'asdfg', 'Simona', 'Raciti');
 
 --
 -- Indici per le tabelle scaricate
@@ -96,6 +132,12 @@ ALTER TABLE `ordini`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_prodotto` (`id_prodotto`),
   ADD KEY `id_utente` (`id_utente`);
+
+--
+-- Indici per le tabelle `prenotazioni`
+--
+ALTER TABLE `prenotazioni`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `prodotti`
@@ -118,6 +160,12 @@ ALTER TABLE `utenti`
 --
 ALTER TABLE `ordini`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `prenotazioni`
+--
+ALTER TABLE `prenotazioni`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotti`
