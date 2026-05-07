@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 04, 2026 alle 13:03
+-- Creato il: Mag 07, 2026 alle 12:21
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -48,7 +48,9 @@ INSERT INTO `biglietti_prenotazioni` (`id`, `email`, `giorni`, `quantita`, `tota
 (7, 'spazzabilly@gmail.com', 'Venerdì, Sabato, Domenica', 2, 120.00, 'VINO-2026-E81360', '2026-05-04 12:48:38'),
 (8, 'spazzabilly@gmail.com', 'Venerdì, Sabato, Domenica', 2, 120.00, 'VINO-2026-04BC14', '2026-05-04 12:49:53'),
 (9, 'spazzabilly@gmail.com', 'Venerdì, Sabato, Domenica', 2, 120.00, 'VINO-2026-587954', '2026-05-04 12:50:14'),
-(10, 'abc@gmail.com', 'Venerdì', 1, 25.00, 'VINO-2026-220817', '2026-05-04 12:55:43');
+(10, 'abc@gmail.com', 'Venerdì', 1, 25.00, 'VINO-2026-220817', '2026-05-04 12:55:43'),
+(11, 'ciabattacasa@gmail.com', 'Venerdì', 1, 25.00, 'VINO-2026-08E674', '2026-05-04 13:08:35'),
+(12, 'ciabattacasa@gmail.com', 'Venerdì', 1, 25.00, 'VINO-2026-5BBCA2', '2026-05-04 13:09:12');
 
 -- --------------------------------------------------------
 
@@ -72,17 +74,17 @@ CREATE TABLE `prodotti` (
 
 INSERT INTO `prodotti` (`id`, `nome`, `descrizione`, `prezzo`, `immagine`, `categoria`, `ordine`) VALUES
 (44, 'Pinot Noir Bourgogne', 'Vino rosso elegante della Borgogna', 35.00, 'pinot_noir.jpg', 'Vini Francesi', 0),
-(45, 'Chardonnay Bourgogne', 'Bianco minerale e raffinato', 32.00, 'chardonnay.jpg', 'Vini Francesi', 3),
+(45, 'Chardonnay Bourgogne', 'Vino bianco minerale e raffinato', 32.00, 'chardonnay.jpg', 'Vini Francesi', 3),
 (46, 'Meursault Blanc', 'Grande bianco della Côte de Beaune', 65.00, 'meursault.jpg', 'Vini Francesi', 0),
 (47, 'Chablis Premier Cru', 'Bianco fresco e sapido della Borgogna', 42.00, 'chablis.jpg', 'Vini Francesi', 0),
 (48, 'Chianti Classico DOCG', 'Rosso toscano tradizionale ed equilibrato', 30.00, 'chianti.jpg', 'Vini Italiani', 2),
 (49, 'Brunello di Montalcino', 'Grande rosso strutturato e longevo', 75.00, 'brunello.jpg', 'Vini Italiani', 4),
-(50, 'Vino Nobile di Montepulciano', 'Elegante rosso della Toscana', 45.00, 'montepulciano.jpg', 'Vini Italiani', 0),
+(50, 'Vino Montepulciano', 'Elegante rosso della Toscana', 45.00, 'montepulciano.jpg', 'Vini Italiani', 0),
 (51, 'Bolgheri Rosso', 'Blend moderno della costa toscana', 55.00, 'bolgheri.jpg', 'Vini Italiani', 0),
 (52, 'Calice Festival', 'Calice ufficiale Tchin-Cin inciso', 12.00, 'calice.jpg', 'Gadget', 0),
 (53, 'T-shirt Festival', 'Maglietta edizione limitata 2026', 18.00, 'tshirt.jpg', 'Gadget', 0),
-(54, 'Cappellino Tchin-Cin', 'Cappellino brandizzato festival', 15.00, 'cappellino.jpg', 'Gadget', 0),
-(55, 'Shopper Bag Eco', 'Borsa ecologica riutilizzabile', 10.00, 'shopper.jpg', 'Gadget', 0),
+(54, 'Cappellino Tchin-Cin', 'Cappellino festival', 15.00, 'cappellino.jpg', 'Gadget', 0),
+(55, 'Shopper Bag Eco', 'Borsa riutilizzabile', 10.00, 'shopper.jpg', 'Gadget', 0),
 (56, 'Kit Sommelier', 'Kit completo degustazione vino', 40.00, 'kit.jpg', 'Esperienze', 2),
 (57, 'Ticket Masterclass', 'Lezione con sommelier esperti', 75.00, 'masterclass.jpg', 'Esperienze', 0),
 (58, 'VIP Wine Lounge', 'Accesso area esclusiva VIP', 80.00, 'vip.jpg', 'Esperienze', 0),
@@ -177,7 +179,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `biglietti_prenotazioni`
 --
 ALTER TABLE `biglietti_prenotazioni`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotti`
