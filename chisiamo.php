@@ -27,7 +27,7 @@
 <strong>convivialità</strong>: <strong>Tchin-Cin</strong> è un festival che <i>ci rappresenta</i> e che <u>unisce</u>, stimolando l’economia locale e coltivando uno spirito di condivisione tra i nostri due terroir.</p>
     </div>
     <div class="hero-img">
-            <img src="vino2.jpg">
+            <img src="img/vino3.jpg">
     </div>
 </section>
 
