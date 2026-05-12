@@ -90,7 +90,7 @@
 <body>
 
 <header>
-    <h1>🍷 Festival Tchin-Cin 2026</h1>
+    <h1>Il tuo account - Logout</h1>
     <?php include 'navbar.php'; ?>
 </header>
 

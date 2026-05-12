@@ -25,7 +25,7 @@ while ($row = $result->fetch_assoc()) {
 <body>
 
 <header>
-    <h1>🍷 Festival Tchin-Cin 2026</h1>
+    <h1>Shop</h1>
     <?php include 'navbar.php'; ?>
 </header>
 
