@@ -81,7 +81,7 @@ else
 {
     echo "<button class='btn-main'
             type='button'
-            onclick=\"alert('Devi prima effettuare il login')\">
+            onclick=\"alert('Devi prima effettuare il login'); window.location.href='login.php';\">
             Acquista
           </button>";
 }

@@ -1,3 +1,8 @@
+<?php
+session_start();
+$isLogged = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -98,8 +103,7 @@
                 <div class="selection-verticale">
                     <div style="text-align: center; margin-bottom: 20px; align-items: center;">
     <style>
-
-        .selection-verticale {
+       .selection-verticale {
 
             display: inline-block;
 
@@ -134,6 +138,44 @@
             cursor: pointer;
 
             flex-shrink: 0;    
+        }
+        /* On force le wrapper à ce que toutes les colonnes fassent la même hauteur */
+        .main-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: stretch; /* CHANGÉ : de flex-start à stretch */
+            gap: 40px;
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* On prépare la colonne du formulaire pour le Flexbox */
+        .form-column {
+            flex: 2;
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            
+            display: flex;       /* AJOUTÉ */
+            flex-direction: column; /* AJOUTÉ */
+        }
+
+        /* Le formulaire doit lui aussi s'étirer */
+        .form-column form {
+            display: flex;       /* AJOUTÉ */
+            flex-direction: column; /* AJOUTÉ */
+            height: 100%;        /* AJOUTÉ */
+            flex-grow: 1;        /* AJOUTÉ */
+        }
+
+        /* La zone qui contient le bouton doit être poussée vers le bas */
+        .btn-container {
+            margin-top: auto;    /* AJOUTÉ : Pousse tout le bloc vers le bas */
+            padding-top: 20px;
         }
     </style>
 
@@ -173,7 +215,23 @@
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
-                <button type="submit" class="btn-acquista">Acquista</button>
+
+            <?php if($isLogged): ?>
+
+                <button type="submit" class="btn-acquista">
+                    Acquista
+                </button>
+
+            <?php else: ?>
+
+                <button type="button"
+                        class="btn-acquista"
+                        onclick="alert('Devi prima effettuare il login'); window.location.href='login.php';">
+                    Acquista
+                </button>
+
+            <?php endif; ?>
+
             </div>
         </form>
     </main>
