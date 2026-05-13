@@ -52,6 +52,14 @@ VALUES (?, ?, ?, ?)
 $stmt->bind_param("siis", $id_utente, $id_prodotto, $quantita, $stato);
 $stmt->execute();
 
+$stmt = $conn->prepare("
+UPDATE prodotti
+SET ordine = ordine + ?
+WHERE id = ?
+");
+$stmt->bind_param("ii", $quantita, $id_prodotto);
+$stmt->execute();
+
 /* 🔍 2. recupero info prodotto */
 $stmt = $conn->prepare("
 SELECT nome, prezzo
