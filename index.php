@@ -52,7 +52,7 @@
             <p>I migliori vini francesi e italiani selezionati per te.</p>
         </div>
         <div class="card">
-            <h3>🎓 Intervista</h3>
+            <h3>🎓 Interviste</h3>
             <p>Organizzate dagli operatori del settore su diversi temi vitivinicoli.</p>
         </div>
         <div class="card">

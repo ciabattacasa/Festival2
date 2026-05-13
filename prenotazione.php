@@ -91,18 +91,17 @@ $isLogged = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
         <img src="img/Festival 4  img.png" alt="Festival">
     </aside>
 
-    <!-- CENTRE : TON FORMULAIRE -->
     <main class="form-column">
         <h2 style="text-align: center; color: #6b0f1a;">🎟️ Prenotazione biglietti</h2>
 
-        <form action="process.php" method="post">
-            <p style="text-align: center;"><strong>Prezzo:</strong> 25€ al giorno (20€ al giorno selezionando più giorni)</p>
+            <form action="pagamento.php" method="post">
+                <p style="text-align: center;"><strong>Prezzo:</strong> 25€ al giorno </p> (20€ al giorno selezionando più giorni)
 
             <div style="text-align: center; margin: 30px 0;">
                 <p><strong>Scegli i giorni:</strong></p>
                 <div class="selection-verticale">
                     <div style="text-align: center; margin-bottom: 20px; align-items: center;">
-    <style>
+    <style> 
        .selection-verticale {
 
             display: inline-block;
