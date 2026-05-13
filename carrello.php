@@ -68,24 +68,99 @@ $nome = $prodotto['nome'];
 $prezzo = $prodotto['prezzo'];
 
 $totale = $prezzo * $quantita;
+?>
 
-/* 🎯 OUTPUT COMPLETO */
-echo "
-<div style='text-align:center; margin-top:50px; font-family:Arial;'>
+<section>
     <h2>✅ Prenotazione effettuata!</h2>
 
     <h3>📦 Prodotto</h3>
-    <p>Nome: $nome</p>
-    <p>Prezzo unitario: €$prezzo</p>
-    <p>Quantità: $quantita</p>
-    <p><strong>Totale: €$totale</strong></p>
+    <p>Nome: <strong><?php echo htmlspecialchars($nome); ?></strong></p>
+    <p>Prezzo unitario: <strong>€<?php echo number_format($prezzo, 2, ',', '.'); ?></strong></p>
+    <p>Quantità: <strong><?php echo $quantita; ?></strong></p>
+    <p class="totale">Totale: <strong>€<?php echo number_format($totale, 2, ',', '.'); ?></strong></p>
 
     <h3>👤 Utente</h3>
-    <p>Email: $id_utente</p>
+    <p>Email: <strong><?php echo htmlspecialchars($id_utente); ?></strong></p>
 
-    <p>📌 Stato: $stato</p>
+    <p class="stato">📌 Stato: <strong><?php echo htmlspecialchars($stato); ?></strong></p>
 
-    <a href='shop.php'>⬅ Torna allo shop</a>
-</div>
-";
-?>
+    <a href='shop.php' class="btn-torna">⬅ Torna allo shop</a>
+</section>
+
+<style>
+
+/* Centra la section sulla pagina */
+section {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Titolo principale */
+section h2 {
+    color: #6b0f1a;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Sottotitoli */
+section h3 {
+    color: #6b0f1a;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Paragrafi */
+section p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* Totale in evidenza */
+section p.totale {
+    font-size: 1.2rem;
+    color: #6b0f1a;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+/* Stato */
+section p.stato {
+    color: #6b0f1a;
+    margin: 20px 0;
+}
+
+/* Link/Bottone Torna allo shop */
+section a.btn-torna {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: #6b0f1a;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+section a.btn-torna:hover {
+    background-color: #8b1a2a;
+    transform: translateY(-2px);
+}
+
+</style>
+
+<?php include 'footer.php'; ?>
