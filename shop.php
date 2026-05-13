@@ -1,5 +1,8 @@
 <?php
 include("connessione.php");
+session_start();
+
+$isLogged = isset($_SESSION['loggedin']) && !empty($_SESSION['loggedin'] === true);
 
 $sql = "SELECT DISTINCT categoria
 FROM prodotti";
@@ -59,11 +62,29 @@ foreach($categorie as $cat)
         echo "<h3>".$row["nome"]."</h3>";
         echo "<p>".$row["descrizione"]."</p>";
         echo "<p class='prezzo'>€ ".$row["prezzo"]."</p>";
-            echo "<form action='carrello.php' method='POST'>";
-            echo "<input type='hidden' name='id_prodotto' value='".$row["id"]."'>";
-            echo "<input type='number' name='quantita' value='1' min='1' style='width:60px;'>";
-            echo "<button class='btn-main' type='submit'>Acquista</button>";
-            echo "</form>";
+ 
+if($isLogged)
+{
+    echo "<form action='carrello.php' method='POST'>";
+
+    echo "<input type='hidden' name='id_prodotto' value='".$row["id"]."'>";
+
+    echo "<input type='number' name='quantita' value='1' min='1' style='width:60px;'>";
+
+    echo "<button class='btn-main' type='submit'>
+            Acquista
+          </button>";
+
+    echo "</form>";
+}
+else
+{
+    echo "<button class='btn-main'
+            type='button'
+            onclick=\"alert('Devi prima effettuare il login')\">
+            Acquista
+          </button>";
+}
         echo "</div>";
     }
 
